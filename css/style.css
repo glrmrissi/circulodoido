@@ -1,0 +1,146 @@
+:root {
+    --backgrond-main-color: #090909;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--backgrond-main-color);
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+#scrollPath {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+
+    animation: gamer 8s linear infinite;
+}
+
+#progressBar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: #5d5664;
+}
+
+
+#scrollPath::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(30px);
+}
+
+#scrollPath::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to top, #008aff, #00ffe7);
+    filter: blur(30px);
+}
+
+
+
+@keyframes gamer {
+    0%,100% {
+        filter: hue-rotate(0deg);
+    } 50% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Header */
+.video_fadeout {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.video_fadeout video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.text_center_video {
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+.text_center_video  h2 {
+    font-style: oblique;
+    color: #fff;
+    font-size: 3em;
+}
+
+.rodas div{
+    position: relative;
+    width: 270px; 
+    height: 270px; 
+    margin: auto;
+    rotate: 10deg;
+    background-color: transparent;
+}
+
+
+.rodas div::before {
+    content: "";
+    position: absolute;
+    inset: -60px;
+    border: 4px solid rgb(31, 31, 31);
+    
+    box-shadow: inset 0 0 30px  #00000055;
+    z-index: 1;
+    animation: anime01 7s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes anime01 {
+    0% {
+        transform: scaleY(0.7) scaleX(1.5);
+        rotate: 0deg;
+    }50% {    
+        transform: scaleY(1.5) scaleX(0.7);
+        rotate: 180deg;
+    }
+    100% {
+        transform: scaleY(0.7) scaleX(1.5);
+        rotate: 360deg;
+    }
+}
+
+section {
+    height: 120vh;
+}
