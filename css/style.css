@@ -318,9 +318,42 @@ h3 {
 }
 
 .section_tree {
+    position: relative;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease;
+    transition: all 1s;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    pointer-events: none;
+    backdrop-filter: blur(7px);
+  }
+
+.section_tree h1 {
+    font-size: 2em;
+    margin: 0 0 50px 0;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.section_tree h1 span {
+    color: #00ff1e;
 }
 
 .sliders {
@@ -329,9 +362,8 @@ h3 {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	gap: 1em;
 	width: 60%;
-	height:600px;
+	height:650px;
     transition: all 400ms;
-    overflow: hidden;
 }
 
 
@@ -342,6 +374,7 @@ h3 {
     transition: all .7s;
     margin-left: 0.3vh;
     z-index: 1;
+    overflow: hidden;
 }
 
 
@@ -350,7 +383,7 @@ h3 {
     z-index: 10;
 	scale: 1.1;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+    
 }
 
 .imgs_slide{ 
