@@ -1,16 +1,10 @@
-let video = document.getElementById("video_open")
-
-window.addEventListener('scroll', function () {
-    let value1 = 1 + window.scrollY / -600;
-    video.style.opacity = value1;
-})
-
 let progress = document.getElementById('scrollPath')
 let totalHeigth = document.body.scrollHeight - window.innerHeight
 
 window.onscroll = function () {
-    let progressHeight = (window.pageYOffset / totalHeigth) * 100;
-    progress.style.height = progressHeight + "%"
+    let progressHeight = parseInt((window.scrollY / totalHeigth) * 100);
+    progress.style.height =  parseInt(progressHeight) + "%"
+    
 }
 
 // Seleciona todos os elementos de rádio com o nome "slider"
@@ -40,6 +34,7 @@ radioButtons.forEach(function (button, index) {
         }
     });
 });
+
 const sectionTree = document.querySelector('.section_tree');
 const backgroundOverlay = document.querySelector('.background-overlay');
 let mouseHoverTimeout;
@@ -49,11 +44,15 @@ function handleMouseEnter(box) {
         const imageUrl = box.querySelector('img').src;
         sectionTree.style.backgroundImage = `url(${imageUrl})`;
         backgroundOverlay.style.opacity = 1; 
-    }, 200);
+    }, 300);
 }
 
+let blick = false;
+
 function handleMouseLeave() {
-    clearTimeout(mouseHoverTimeout); 
+    if(!blick) {
+        clearTimeout(mouseHoverTimeout); 
+    }
     sectionTree.style.backgroundImage = `url()`;
     backgroundOverlay.style.opacity = 0; 
 }
@@ -62,3 +61,19 @@ document.querySelectorAll('.imgs_slide').forEach(box => {
     box.addEventListener('mouseenter', () => handleMouseEnter(box));
     box.addEventListener('mouseleave', () => handleMouseLeave());
 });
+
+let video = document.getElementById("video_open");
+let scrollVeri = window.scrollY
+
+window.addEventListener('scroll', function() {
+    let value1 = 1 + window.scrollY / -600
+    if(value1 <= 0) {
+        video.style.opacity = 0
+    } else {
+        video.style.opacity = value1
+    }
+})
+
+// for(let i = 0; i < 10; i++) {
+//     console.log("auauau")
+// }
