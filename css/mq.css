@@ -1,6 +1,15 @@
+h1, li, a {
+    color: #fff;
+}
 
-p {
-    color: blue;
+
+h1 span {
+    color:rgb(255, 0, 0);
+}
+p, li {
+    font-size: 2.3vh;
+    color: rgb(255, 255, 255);
+    padding: 2vh 0  0 2vh;
 }
 
 
@@ -41,7 +50,8 @@ p {
         display: none;
     }
 
-    .article_one, .article_two {
+    .article_one,
+    .article_two {
         height: 100%;
     }
 
